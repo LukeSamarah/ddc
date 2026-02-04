@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(timeout 15 npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout 20 npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri http://localhost:3000/faq -UseBasicParsing -TimeoutSec 30 | Select-Object -Property StatusCode,StatusDescription\")",
+      "Bash(powershell -Command:*)",
+      "Bash(ffprobe:*)"
+    ]
+  }
+}
