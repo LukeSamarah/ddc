@@ -1,3 +1,5 @@
+import { FormattedContent } from '@/lib/formatContent'
+
 interface VideoSectionProps {
   title: string
   content: string
@@ -69,12 +71,7 @@ export default function VideoSection({
               {title}
             </h2>
             <div className="mt-8 text-base leading-7 text-muted-foreground space-y-4 sm:text-lg sm:leading-8 font-muli">
-              {content.split('\n\n').map((paragraph, index) => {
-                const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                return (
-                  <p key={index} dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
-                );
-              })}
+              <FormattedContent content={content} />
             </div>
           </div>
         </div>

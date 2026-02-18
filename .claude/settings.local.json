@@ -8,7 +8,13 @@
       "Bash(npm run build:*)",
       "Bash(powershell -Command \"Invoke-WebRequest -Uri http://localhost:3000/faq -UseBasicParsing -TimeoutSec 30 | Select-Object -Property StatusCode,StatusDescription\")",
       "Bash(powershell -Command:*)",
-      "Bash(ffprobe:*)"
+      "Bash(ffprobe:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(npm audit:*)",
+      "Bash(ls:*)",
+      "Bash(npm ls:*)",
+      "Bash(wc:*)"
     ]
   }
 }

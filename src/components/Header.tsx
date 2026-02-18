@@ -3,15 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-
-const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Service', href: '/service' },
-    { name: 'Referenzen', href: '/referenzen' },
-    { name: 'Über uns', href: '/ueber-uns' },
-    { name: 'Kontakt', href: '/kontakt' },
-    { name: 'FAQ', href: '/faq' },
-]
+import { navigation } from '@/data/navigation'
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -24,12 +16,20 @@ export default function Header() {
             }
         }
 
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setMobileMenuOpen(false)
+            }
+        }
+
         if (mobileMenuOpen) {
             document.addEventListener('mousedown', handleClickOutside)
+            document.addEventListener('keydown', handleEscapeKey)
         }
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('keydown', handleEscapeKey)
         }
     }, [mobileMenuOpen])
 
@@ -48,7 +48,7 @@ export default function Header() {
                         <Link href="/" className="block">
                             <Image
                                 src="/logo-header.png"
-                                alt="Daily Dose Logo"
+                                alt="Daily Dose of Content - Zur Startseite"
                                 width={200}
                                 height={120}
                                 className="h-28 w-auto"

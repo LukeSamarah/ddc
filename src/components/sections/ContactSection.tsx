@@ -22,8 +22,7 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Hier würde die Form-Logik implementiert werden
-    console.log('Form submitted:', formData)
+    // TODO: Integrate with /api/contact endpoint
     alert('Vielen Dank für Ihre Nachricht! Wir melden uns bald bei Ihnen.')
   }
 

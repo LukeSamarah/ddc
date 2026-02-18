@@ -1,3 +1,5 @@
+import { FormattedContent } from '@/lib/formatContent'
+
 interface TextSectionProps {
   title: string
   content: string
@@ -5,9 +7,9 @@ interface TextSectionProps {
   backgroundColor?: 'white' | 'gray'
 }
 
-export default function TextSection({ 
-  title, 
-  content, 
+export default function TextSection({
+  title,
+  content,
   centered = false,
   backgroundColor = 'white'
 }: TextSectionProps) {
@@ -25,13 +27,7 @@ export default function TextSection({
           )}
           {content && (
             <div className="mt-8 text-base leading-7 text-muted-foreground space-y-4 sm:text-lg sm:leading-8 font-muli">
-              {content.split('\n\n').map((paragraph, index) => {
-                // Handle bold text
-                const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                return (
-                  <p key={index} dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
-                );
-              })}
+              <FormattedContent content={content} />
             </div>
           )}
         </div>

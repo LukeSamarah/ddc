@@ -233,10 +233,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[9999] focus:px-6 focus:py-4 focus:bg-brand-primary focus:text-white focus:font-semibold focus:no-underline"
+        >
+          Zum Inhalt springen
+        </a>
         <ScrollToTop />
         <Header />
         <Breadcrumbs />
-        <main className="flex-grow">
+        <main id="main-content" className="flex-grow">
           {children}
         </main>
         <Footer />

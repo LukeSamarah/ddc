@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { FormattedContent } from '@/lib/formatContent'
 
 interface ImageTextSectionProps {
   title: string
@@ -35,13 +36,7 @@ export default function ImageTextSection({
                 {title}
               </h3>
               <div className="mt-6 text-base leading-7 text-muted-foreground space-y-4 sm:text-lg sm:leading-8 font-muli">
-                {content.split('\n\n').map((paragraph, index) => {
-                  // Handle bold text
-                  const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                  return (
-                    <p key={index} dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
-                  );
-                })}
+                <FormattedContent content={content} />
               </div>
               {button && (
                 <div className="mt-8">
@@ -76,7 +71,7 @@ export default function ImageTextSection({
                 <div className="border-4 border-[#e88906]/20 rounded-2xl overflow-hidden shadow-xl bg-white p-4">
                   <Image
                     src={images[0] || "/placeholder.svg"}
-                    alt="Daily Dose of Content"
+                    alt={title || "Daily Dose of Content - Social Media Agentur"}
                     width={500}
                     height={500}
                     className="w-full h-auto object-contain rounded-lg"

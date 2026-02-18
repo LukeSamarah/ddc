@@ -254,9 +254,12 @@ export default function ServicePage() {
                   key={index}
                   className="group relative"
                 >
-                  <div 
-                    className="p-6 cursor-pointer rounded-2xl bg-card shadow-lg border border-border hover:border-[#e88906]/30 transition-all duration-300 hover:shadow-xl"
+                  <button
+                    type="button"
+                    className="w-full text-left p-6 cursor-pointer rounded-2xl bg-card shadow-lg border border-border hover:border-[#e88906]/30 transition-all duration-300 hover:shadow-xl"
                     onClick={() => toggleService(index)}
+                    aria-expanded={isExpanded}
+                    aria-controls={`service-desc-${index}`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
@@ -273,10 +276,10 @@ export default function ServicePage() {
                         </svg>
                       </div>
                     </div>
-                  </div>
-                  
+                  </button>
+
                   {/* Tooltip/Overlay Content - schwebt über anderen Elementen */}
-                  <div className={`absolute left-0 right-0 top-full mt-2 z-50 transition-all duration-300 ${
+                  <div id={`service-desc-${index}`} className={`absolute left-0 right-0 top-full mt-2 z-50 transition-all duration-300 ${
                     isExpanded ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
                   }`}>
                     <div className="p-4 rounded-xl bg-card shadow-2xl border border-[#e88906]/20">

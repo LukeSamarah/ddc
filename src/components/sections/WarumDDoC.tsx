@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { FormattedContent } from '@/lib/formatContent'
 
 interface WarumDDoCProps {
   title?: string
@@ -24,7 +25,7 @@ export default function WarumDDoC({
             <div className="w-full max-w-lg">
               <Image
                 src="/social-media-management-laptop.png"
-                alt="Daily Dose of Content"
+                alt="Social Media Management am Laptop - Content-Planung und Strategie"
                 width={600}
                 height={600}
                 className="w-full h-auto object-contain"
@@ -42,12 +43,7 @@ export default function WarumDDoC({
               )}
               {content && (
                 <div className="mt-6 text-base leading-7 text-muted-foreground space-y-4 sm:text-lg sm:leading-8 font-muli">
-                  {content.split('\n\n').map((paragraph, index) => {
-                    const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    return (
-                      <p key={index} dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
-                    );
-                  })}
+                  <FormattedContent content={content} />
                 </div>
               )}
               <div className="mt-8">

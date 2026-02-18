@@ -46,7 +46,7 @@ function TestimonialSection({ testimonial, index }: { testimonial: typeof testim
     <section className={`py-20 bg-[rgba(242,234,229,1)] ${isEven ? 'bg-white' : 'bg-[#f2eae5]'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${testimonial.position === 'right' ? 'lg:grid-flow-col-dense' : ''}`}>
-          
+
           {/* Text Content */}
           <div className={`${testimonial.position === 'right' ? 'lg:col-start-2' : ''}`}>
             <div className="max-w-xl">
@@ -126,17 +126,17 @@ export default function ReferenzenPage() {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-10 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        
+
         {/* Floating Bubbles */}
         <div className="absolute top-24 left-16 w-3 h-3 bg-white/25 rounded-full animate-bounce"></div>
         <div className="absolute top-40 right-24 w-5 h-5 bg-white/15 rounded-full animate-pulse"></div>
         <div className="absolute bottom-48 left-1/3 w-4 h-4 bg-white/20 rounded-full animate-ping"></div>
-        <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-12 w-6 h-6 bg-white/10 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-1/3 right-16 w-3 h-3 bg-white/25 rounded-full animate-ping" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute bottom-40 left-1/2 w-4 h-4 bg-white/15 rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-20 left-2/3 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
-        
+        <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-12 w-6 h-6 bg-white/10 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-1/3 right-16 w-3 h-3 bg-white/25 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-40 left-1/2 w-4 h-4 bg-white/15 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-2/3 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center pt-16 sm:pt-0">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl font-canto-bold">
@@ -146,23 +146,23 @@ export default function ReferenzenPage() {
         </div>
       </section>
 
-{/* Client Logos Carousel */}
+      {/* Client Logos Carousel */}
       <section className="py-16 bg-card border-b border-border relative overflow-hidden">
         <div className="relative">
           {/* Left fade gradient */}
           <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-40 bg-gradient-to-r from-card via-card/80 to-transparent z-10 pointer-events-none"></div>
-          
+
           {/* Right fade gradient */}
           <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-40 bg-gradient-to-l from-card via-card/80 to-transparent z-10 pointer-events-none"></div>
-          
+
           {/* Moving Container */}
-          <div className="flex animate-marquee" style={{ width: '200%' }}>
+          <div className="flex animate-marquee w-[500%] lg:w-[200%]">
             {/* First group */}
             <div className="flex items-center justify-around" style={{ width: '50%' }}>
               {clientLogos.map((client, index) => (
-                <div 
+                <div
                   key={`first-${client.name}-${index}`}
-                  className="flex items-center justify-center h-28 px-8 lg:px-12"
+                  className="flex items-center justify-center h-28 px-4 lg:px-12"
                 >
                   {client.logo ? (
                     <Image
@@ -181,13 +181,13 @@ export default function ReferenzenPage() {
                 </div>
               ))}
             </div>
-            
+
             {/* Second identical group for seamless loop */}
             <div className="flex items-center justify-around" style={{ width: '50%' }}>
               {clientLogos.map((client, index) => (
-                <div 
+                <div
                   key={`second-${client.name}-${index}`}
-                  className="flex items-center justify-center h-28 px-8 lg:px-12"
+                  className="flex items-center justify-center h-28 px-4 lg:px-12"
                 >
                   {client.logo ? (
                     <Image
@@ -212,9 +212,9 @@ export default function ReferenzenPage() {
 
       {/* Testimonials */}
       {testimonials.map((testimonial, index) => (
-        <TestimonialSection 
-          key={testimonial.id} 
-          testimonial={testimonial} 
+        <TestimonialSection
+          key={testimonial.id}
+          testimonial={testimonial}
           index={index}
         />
       ))}
